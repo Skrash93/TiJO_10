@@ -33,8 +33,8 @@ describe('app', function () {
             });
         });
         it('should return adults as course value', function () {
-            expect(app.assignToSwimmingCourse('Mario', '10/06/2010')).toEqual({
-                name: 'Mario', age: 5, course: 'adults'
+            expect(app.assignToSwimmingCourse('Mario', '10/06/1995')).toEqual({
+                name: 'Mario', age: 20, course: 'adults'
             });
         });
     });
@@ -49,8 +49,27 @@ describe('app', function () {
         it('should return Sukces message, all params are proper', function () {
            expect(answer.calculateArea(25, 10, 1, 'Sukces', 'Niepowodzenie')).toEqual({ area : 20, message : 'Sukces' });
         });
-    });    
+    });
+    it('should return false, the first param is not a number', function () {
+        expect(answer.calculateArea('a', 10, 10, 'Sukces', 'Niepowodzenie')).toBe(false);
+    });
+    it('should return false, the second param is not a number', function () {
+        expect(answer.calculateArea(10, 'a', 10, 'Sukces', 'Niepowodzenie')).toBe(false);
+    });
+    it('should return false, the third param is not a number', function () {
+        expect(answer.calculateArea(10, 10, 'a', 'Sukces', 'Niepowodzenie')).toBe(false);
+    });
+    it('a is greater than b, all params are proper', function () {
+        expect(answer.calculateArea(11, 10, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Sukces' });
+    });
+    it('b is greater than a, all params are proper', function () {
+        expect(answer.calculateArea(10, 11, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Sukces' });
+    });
+    it('insert 0 as second and third value', function () {
+        expect(answer.calculateArea(10, 0, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 10, message : 'Sukces' });
+    });
 
 });
+
 
 
