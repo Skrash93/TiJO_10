@@ -23,12 +23,12 @@ describe('app', function () {
 
         //New Tests
         it('should return flase, date is a string', function () {
-            expect(app.assignToSwimmingCourse('Mario', 'yolo')).toEqual({
+            expect(app.assignToSwimmingCourse('Mario', '10/06/2010')).toEqual({
                 name: 'Mario', age: 5, course: 'kids'
             });
         });
         it('should return age value 12', function () {
-            expect(app.assignToSwimmingCourse('Mario', '10/06/2010')).toEqual({
+            expect(app.assignToSwimmingCourse('Mario', '10/06/2003')).toEqual({
                 name: 'Mario', age: 12, course: 'kids'
             });
         });
@@ -41,13 +41,13 @@ describe('app', function () {
 
     describe('calculateArea', function () {
         it('a is greater than b, all params are proper', function () {
-          expect(answer.calculateArea(11, 10, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Niepowodzenie' });
+          expect(answer.calculateArea(11, 10, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Sukces' });
         });
         it('insert 0 as first and third value', function () {
-           expect(answer.calculateArea(0, 11, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 10, message : 'Sukces' });
+           expect(answer.calculateArea(0, 11, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Sukces' });
         });
         it('should return Sukces message, all params are proper', function () {
-           expect(answer.calculateArea(25, 10, 1, 'Sukces', 'Niepowodzenie')).toEqual({ area : 20, message : 'Sukces' });
+            expect(answer.calculateArea(11, 10, 0, 'Sukces', 'Niepowodzenie')).toEqual({ area : 11, message : 'Sukces' });
         });
     });
     it('should return false, the first param is not a number', function () {
