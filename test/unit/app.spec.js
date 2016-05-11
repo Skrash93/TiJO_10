@@ -16,14 +16,14 @@ describe('app', function () {
             });
         });
         it('should assign person below 12 to kids group', function () {
-            expect(app.assignToSwimmingCourse('Zack', '10/06/2010')).toEqual({
+            expect(app.assignToSwimmingCourse('Zack', 'Adult')).toEqual({
                 name: 'Zack', age: 5, course: 'kids'
             });
         });
 
         //New Tests
         it('should return flase, date is a string', function () {
-            expect(app.assignToSwimmingCourse('Mario', '10/06/2010')).toEqual({
+            expect(app.assignToSwimmingCourse('Mario', '10/06/2000')).toEqual({
                 name: 'Mario', age: 5, course: 'kids'
             });
         });
@@ -33,7 +33,7 @@ describe('app', function () {
             });
         });
         it('should return adults as course value', function () {
-            expect(app.assignToSwimmingCourse('Mario', '10/06/1995')).toEqual({
+            expect(app.assignToSwimmingCourse('Mario', '10/06/2014')).toEqual({
                 name: 'Mario', age: 20, course: 'adults'
             });
         });
